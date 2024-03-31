@@ -27,15 +27,8 @@ in {
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   
-  # Experimental features
-  nix.settings.experimental-features = ["nix-command" "flakes"];
-
   # Boot Settings
   boot = {
-    initrd.secrets = {    
-      "/crypto_keyfile.bin" = null;
-    };
-
     # Boot Loader
     loader = {
       # Grub
@@ -45,16 +38,22 @@ in {
       efi.canTouchEfiVariables = if (bootMode == "uefi") then true else false;
       systemd-boot = {
         enable = if (bootMode == "uefi") then true else false;
-        configurationLimit = 10;
+        configurationLimit = 5;
       };
     };
   };
 
-  # Garbage Collect
-  nix.gc = {
-    automatic = true;
-    randomizedDelaySec = "14m";
-    options = "--delete-older-than 10d";
+  # Optimization settings and garbage collection automation
+  nix = {
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = ["nix-command" "flakes"];
+    };
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
   };
 
 
@@ -131,12 +130,6 @@ in {
 
   # Configure console keymap
   console.keyMap = "it2";
-
-  # Configuring Optimus Prime for Nvidia
-  hardware.nvidia.prime = {
-    intelBusId = "PCI:0:2:0";
-    nvidiaBusId = "PCI:02:0:0";
-  };
 
   # Shell
   programs.zsh.enable = true;
