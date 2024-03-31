@@ -32,7 +32,6 @@ in {
     cava
     discord
     firefox
-    gh
     gitui
     htop
     obsidian
