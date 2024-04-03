@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, ... }:
+{ inputs, config, pkgs, lib, ... }:
 
 let
   # Before changing this value read the documentation for this option
@@ -56,6 +56,8 @@ in {
     };
   };
 
+  # Stop ssh because of xz trojan https://github.com/NixOS/nixpkgs/issue/300055
+  services.openssh.enable = lib.mkForce false;
 
 
   #------------------------------------------------------------
