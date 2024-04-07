@@ -33,7 +33,6 @@ in {
     discord
     firefox
     gitui
-    htop
     obsidian
     telegram-desktop
     zellij
