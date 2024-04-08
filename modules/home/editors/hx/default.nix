@@ -8,12 +8,15 @@
       theme = "catppuccin_mocha";
 
       editor = {
-        line-number = "relative";
+        auto-format = true;
+        auto-save = true;
+        bufferline = "multiple";
+        completion-replace = true;
+        completion-trigger-len = 1;
         cursorline = true;
         idle-timeout = 0;
-        completion-trigger-len = 1;
-        bufferline = "multiple";
-        auto-save = true;
+        indent-heuristic = "hybrid";
+        line-number = "relative";
         soft-wrap.enable = true;
 
         statusline = {

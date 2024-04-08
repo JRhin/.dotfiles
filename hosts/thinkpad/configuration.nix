@@ -15,6 +15,7 @@ in {
       # Include the results of the hardware scan.
       ../../hardware/thinkpad/hardware-configuration.nix
 
+      ../../modules/system/clamav
       ../../modules/system/nvidia
       ../../modules/system/pipewire
       ../../modules/system/printing
