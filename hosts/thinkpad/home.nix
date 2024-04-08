@@ -7,6 +7,7 @@ let
   stateVersion = "23.11"; # Please read the comment before changing.
   
   editor = "hx";
+  shell = "zsh";
   terminal = "kitty";
   username = "jrhin";
 in {
@@ -16,9 +17,12 @@ in {
   programs.home-manager.enable = true;
 
   imports = [
+    ../../modules/home/fzf
     ../../modules/home/git
     ../../modules/home/editors/${editor}
+    ../../modules/home/shells/${shell}
     ../../modules/home/terminals/${terminal}
+    ../../modules/home/zoxide
   ];
 
   home.username = username;
@@ -43,6 +47,7 @@ in {
 
   home.sessionVariables = {
     EDITOR = editor;
+    SHELL = shell;
     TERMINAL = terminal;
   };
 }

@@ -8,7 +8,9 @@ let
   bootMode = "uefi";
   defaultLocale = "en_US.UTF-8";
   locale = "it_IT.UTF-8";
+  shell = "zsh";
   timeZone = "Europe/Rome";
+  user = "jrhin";
 in {
   
   imports = [
@@ -69,10 +71,11 @@ in {
   
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users = {
-    jrhin = {
+    ${user} = {
       isNormalUser = true;
-      description = "jrhin";
+      description = user;
       extraGroups = [ "networkmanager" "wheel" "docker" ];
+      shell = pkgs.${shell};
     };
   };
 
@@ -80,7 +83,7 @@ in {
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
-      jrhin = import ./home.nix;
+      ${user} = import ./home.nix;
     };
   };
 
