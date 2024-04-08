@@ -1,5 +1,5 @@
 {
-  description = "My Nix Home";
+  description = "JRhin Flake";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";

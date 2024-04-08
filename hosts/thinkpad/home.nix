@@ -19,9 +19,11 @@ in {
   imports = [
     ../../modules/home/fzf
     ../../modules/home/git
+    ../../modules/home/gitui
     ../../modules/home/editors/${editor}
     ../../modules/home/shells/${shell}
     ../../modules/home/terminals/${terminal}
+    ../../modules/home/zellij
     ../../modules/home/zoxide
   ];
 
@@ -36,10 +38,8 @@ in {
     cava
     discord
     firefox
-    gitui
     obsidian
     telegram-desktop
-    zellij
   ];
 
   home.file = {

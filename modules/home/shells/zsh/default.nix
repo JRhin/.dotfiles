@@ -1,4 +1,5 @@
 {config, pkgs, ...}:
+
 {
   programs.zsh = {
     enable = true;
@@ -30,6 +31,7 @@
     zstyle ':vcs_info:*' enable git
 
     eval "$(zoxide init --cmd cd zsh)"
+    eval "$(zellij setup --generate-auto-start zsh)"
     '';
 
     shellAliases = {
