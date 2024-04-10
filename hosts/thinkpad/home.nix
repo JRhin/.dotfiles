@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 let
   # You should not change this value, even if you update Home Manager. If you do
@@ -6,6 +6,7 @@ let
   # release notes.
   stateVersion = "23.11"; # Please read the comment before changing.
   
+  browser = "firefox";
   editor = "hx";
   shell = "zsh";
   terminal = "kitty";
@@ -17,6 +18,7 @@ in {
   programs.home-manager.enable = true;
 
   imports = [
+    ../../modules/home/browser/${browser}
     ../../modules/home/fzf
     ../../modules/home/git
     ../../modules/home/gitui
@@ -37,7 +39,6 @@ in {
     bottom
     cava
     discord
-    firefox
     obsidian
     telegram-desktop
   ];

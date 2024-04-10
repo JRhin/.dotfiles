@@ -11,11 +11,9 @@
         auto-format = true;
         auto-save = true;
         bufferline = "multiple";
-        completion-replace = true;
         completion-trigger-len = 1;
         cursorline = true;
         idle-timeout = 0;
-        indent-heuristic = "hybrid";
         line-number = "relative";
         soft-wrap.enable = true;
 

@@ -1,4 +1,4 @@
-{config, pkgs, ...}:
+{config, ...}:
 
 {
   programs.zsh = {
@@ -29,9 +29,6 @@
     RPROMPT=\$vcs_info_msg_0_
     zstyle ':vcs_info:git:*' formats '%F{yellow}(%b)%r%f'
     zstyle ':vcs_info:*' enable git
-
-    eval "$(zoxide init --cmd cd zsh)"
-    eval "$(zellij setup --generate-auto-start zsh)"
     '';
 
     shellAliases = {
@@ -39,6 +36,8 @@
       "..." = "cd ../..";
       cl = "clear";
       dot = "cd ~/.dotfiles";
+      gt = "gitui";
+      lg = "lazygit";
       ll = "ls -l";
       nd = "nix develop -c $SHELL";
       update = "sudo nixos-rebuild --flake";
