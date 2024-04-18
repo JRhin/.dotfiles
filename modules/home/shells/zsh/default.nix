@@ -39,7 +39,7 @@
       gt = "gitui";
       lg = "lazygit";
       ll = "ls -l";
-      nd = "nix develop -c $SHELL";
+      nd = "nom develop -c $SHELL";
     };
 
     history.size = 10000;

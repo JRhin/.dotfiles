@@ -168,6 +168,8 @@ in {
       mpv
       nh
       nil
+      nix-output-monitor
+      nvd
       python311 (python311.withPackages(ps: with ps; [
         python-lsp-server
       ]))
