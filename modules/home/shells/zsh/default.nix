@@ -40,7 +40,6 @@
       lg = "lazygit";
       ll = "ls -l";
       nd = "nix develop -c $SHELL";
-      update = "sudo nixos-rebuild --flake";
     };
 
     history.size = 10000;

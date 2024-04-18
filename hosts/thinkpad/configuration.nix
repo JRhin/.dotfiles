@@ -89,7 +89,7 @@ in {
 
 
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "thinkpad";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -152,22 +152,30 @@ in {
   #
   #--------------------------------------------------------
 
-  environment.systemPackages = with pkgs;
-  [
-    #dunst
-    home-manager
-    lazygit
-    lf
-    #libnotify
-    mpv
-    nil
-    python311 (python311.withPackages(ps: with ps; [
-      python-lsp-server
-    ]))
-    sxiv
-    #swww
-    #waybar
-    #wofi
-    zathura
-  ];
+  environment = {
+
+    sessionVariables = {
+      FLAKE = "/home/${user}/.dotfiles";
+    };
+
+    systemPackages = with pkgs;
+    [
+      #dunst
+      home-manager
+      lazygit
+      lf
+      #libnotify
+      mpv
+      nh
+      nil
+      python311 (python311.withPackages(ps: with ps; [
+        python-lsp-server
+      ]))
+      sxiv
+      #swww
+      #waybar
+      #wofi
+      zathura
+    ];
+  };
 }
