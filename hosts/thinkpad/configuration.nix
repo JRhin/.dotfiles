@@ -17,6 +17,8 @@ in {
       # Include the results of the hardware scan.
       ../../hardware/thinkpad/hardware-configuration.nix
 
+      ../../modules/home/stylix
+
       ../../modules/system/clamav
       ../../modules/system/nvidia
       ../../modules/system/pipewire
@@ -140,11 +142,6 @@ in {
   # Shell
   programs.zsh.enable = true;
   environment.binsh = "${pkgs.dash}/bin/dash";
-
-  # Fonts
-  fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })
-  ];
 
   #--------------------------------------------------------
   #

@@ -5,7 +5,7 @@
     enable = true;
 
     settings = {
-      theme = "catppuccin_mocha";
+      # theme = "catppuccin_mocha";
 
       editor = {
         auto-format = true;
