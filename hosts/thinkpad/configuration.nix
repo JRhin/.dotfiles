@@ -120,11 +120,12 @@ in {
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+  # services.xserver.displayManager.gdm.wayland = true;
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-  #programs.hyprland.enable = true;
+  # programs.hyprland.enable = true;
   #xdg.portal.enable = true;
   #xdg.portal.extraPortals = with pkgs; [
   #  xdg-desktop-portal-gtk

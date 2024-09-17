@@ -22,6 +22,7 @@ in {
     ../../modules/home/fzf
     ../../modules/home/git
     ../../modules/home/gitui
+    # ../../modules/home/hyprland
     ../../modules/home/editors/${editor}
     ../../modules/home/shells/${shell}
     ../../modules/home/terminals/${terminal}
