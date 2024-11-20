@@ -168,14 +168,20 @@ in {
       nil
       nix-output-monitor
       nvd
+      nvitop
       python311 (python311.withPackages(ps: with ps; [
         python-lsp-server
       ]))
       sxiv
+      tailscale
       #swww
       #waybar
       #wofi
       zathura
     ];
   };
+
+  # Tailscale service
+  services.tailscale.enable = true;
+  services.tailscale.useRoutingFeatures = "client";
 }
