@@ -38,8 +38,12 @@ in {
   home.packages = with pkgs; [
     anki
     bottom
+    btop
     cava
+    cbonsai
     discord
+    dust
+    ncspot
     obsidian
     telegram-desktop
   ];
