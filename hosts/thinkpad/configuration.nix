@@ -84,6 +84,7 @@ in {
   # Home manager users
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
+    backupFileExtension = "backup";
     users = {
       ${user} = import ./home.nix;
     };
@@ -154,7 +155,7 @@ in {
   environment = {
 
     sessionVariables = {
-      FLAKE = "/home/${user}/.dotfiles";
+      NH_FLAKE = "/home/${user}/.dotfiles";
     };
 
     systemPackages = with pkgs;
