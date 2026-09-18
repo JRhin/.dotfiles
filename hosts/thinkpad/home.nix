@@ -56,4 +56,6 @@ in {
     SHELL = shell;
     TERMINAL = terminal;
   };
+
+  stylix.targets.firefox.profileNames = [ "jrhin" ];
 }

@@ -6,7 +6,7 @@
     enableCompletion = true;
     syntaxHighlighting.enable = true;
 
-    initExtra = ''
+    initContent = ''
     declare -a PROMPTS
     PROMPTS=(
       "∮"

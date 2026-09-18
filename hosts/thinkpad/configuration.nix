@@ -119,8 +119,8 @@ in {
   };
 
   # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
+  services = {
+    xserver.enable = true;
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
   };
@@ -170,7 +170,7 @@ in {
       nix-output-monitor
       nvd
       nvitop
-      python311 (python311.withPackages(ps: with ps; [
+      (python3.withPackages (ps: with ps; [
         python-lsp-server
       ]))
       sxiv

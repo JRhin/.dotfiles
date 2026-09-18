@@ -3,8 +3,10 @@
 {
   programs.git = {
     enable = true;
-    userName = "JRhin";
-    userEmail = "github@jrhin.com";
+    settings.user = {
+      name = "JRhin";
+      email = "github@jrhin.com";
+    };
   };
 
   programs.gh.enable = true;
