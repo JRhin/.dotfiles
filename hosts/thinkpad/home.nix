@@ -6,7 +6,8 @@ let
   # release notes.
   stateVersion = "23.11"; # Please read the comment before changing.
   
-  browser = "firefox";
+  browser = "zen";
+  br_profile = "jrhin";
   editor = "hx";
   shell = "zsh";
   terminal = "kitty";
@@ -18,7 +19,11 @@ in {
   programs.home-manager.enable = true;
 
   imports = [
+    ../../modules/home/bottom
     ../../modules/home/browser/${browser}
+    ../../modules/home/browser/firefox
+    ../../modules/home/btop
+    ../../modules/home/cava
     ../../modules/home/fzf
     ../../modules/home/editors/${editor}
     ../../modules/home/git
@@ -26,11 +31,12 @@ in {
     ../../modules/home/niri
     ../../modules/home/noctalia
     ../../modules/home/shells/${shell}
+    ../../modules/home/spicetify
     ../../modules/home/swaylock
     ../../modules/home/terminals/${terminal}
+    ../../modules/home/yazi
     ../../modules/home/zellij
     ../../modules/home/zoxide
-    
   ];
 
   home.username = username;
@@ -39,14 +45,9 @@ in {
   nixpkgs.config.allowUnfreePredicate = (pkg: true);
 
   home.packages = with pkgs; [
-    anki
-    bottom
-    btop
-    cava
     cbonsai
     discord
     dust
-    ncspot
     obsidian
     telegram-desktop
   ];
@@ -60,5 +61,6 @@ in {
     TERMINAL = terminal;
   };
 
-  stylix.targets.firefox.profileNames = [ "jrhin" ];
+  stylix.targets.firefox.profileNames = [ br_profile ];
+  stylix.targets.zen-browser.profileNames = [ br_profile ];
 }

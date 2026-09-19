@@ -37,7 +37,6 @@
       cl = "clear";
       dot = "cd ~/.dotfiles";
       gt = "gitui";
-      lg = "lazygit";
       ll = "ls -l";
       nd = "nom develop -c $SHELL";
     };

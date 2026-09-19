@@ -329,6 +329,14 @@ window-rule {
     open-floating true
 }
 
+// Transparent kitty: by default niri draws the focus ring as a solid rectangle
+// *behind* the window, so it shows through translucent windows and the focused
+// one looks opaque. This draws only the ring around the window instead.
+window-rule {
+    match app-id="kitty"
+    draw-border-with-background false
+}
+
 // Example: block out two password managers from screen capture.
 // (This example rule is commented out with a "/-" in front.)
 /-window-rule {

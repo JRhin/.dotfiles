@@ -8,6 +8,5 @@
 
     # Run the shell as a systemd user service
     systemd.enable = true;
-
   };
 }

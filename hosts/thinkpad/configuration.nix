@@ -25,7 +25,6 @@ in {
       ../../modules/system/printing
       ../../modules/system/niri
       ../../modules/system/noctalia
-      ../../modules/system/swaylock
 
       inputs.home-manager.nixosModules.default
   ];
@@ -127,7 +126,6 @@ in {
   services = {
     xserver.enable = true;
     displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
   };
 
   # Configure keymap in X11
