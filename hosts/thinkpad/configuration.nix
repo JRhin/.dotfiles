@@ -19,12 +19,15 @@ in {
 
       ../../modules/home/stylix
 
+      ../../modules/system/automount
       ../../modules/system/clamav
+      ../../modules/system/fwupd
+      ../../modules/system/niri
+      ../../modules/system/noctalia
       ../../modules/system/nvidia
       ../../modules/system/pipewire
       ../../modules/system/printing
-      ../../modules/system/niri
-      ../../modules/system/noctalia
+      ../../modules/system/thermald
 
       inputs.home-manager.nixosModules.default
   ];
@@ -55,18 +58,32 @@ in {
   nix = {
     settings = {
       auto-optimise-store = true;
+      trusted-users = [ "root" "@wheel" ];
       experimental-features = ["nix-command" "flakes"];
-    };
-    gc = {
-      automatic = false;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
     };
   };
 
-  # Stop ssh because of xz trojan https://github.com/NixOS/nixpkgs/issue/300055
-  services.openssh.enable = lib.mkForce false;
+  #------------------------------------------------------------
+  #
+  #                       Nix Helpers
+  #
+  #------------------------------------------------------------
 
+  programs.nh = {
+    enable = true;
+
+    # Also sets NH_FLAKE, replacing the session variable
+    flake = "/home/${user}/.dotfiles";
+
+    # Automatic cleanup, aligned with configurationLimit = 5
+    clean = {
+      enable = true;
+      extraArgs = "--keep-since 7d --keep 5";
+    };
+  };
+
+  # Lets generic prebuilt Linux binaries run (pip wheels, editor servers, native tools)
+  programs.nix-ld.enable = true;
 
   #------------------------------------------------------------
   #
@@ -79,7 +96,7 @@ in {
     ${user} = {
       isNormalUser = true;
       description = user;
-      extraGroups = [ "networkmanager" "wheel" "docker" ];
+      extraGroups = [ "networkmanager" "wheel" ];
       shell = pkgs.${shell};
     };
   };
@@ -150,18 +167,14 @@ in {
   environment = {
 
     sessionVariables = {
-      NH_FLAKE = "/home/${user}/.dotfiles";
     };
 
     systemPackages = with pkgs;
     [
-      #dunst
       home-manager
       lazygit
       lf
-      #libnotify
       mpv
-      nh
       nil
       nix-output-monitor
       nvd
@@ -171,10 +184,15 @@ in {
       ]))
       sxiv
       tailscale
-      #swww
-      #wofi
       zathura
     ];
+  };
+
+  # Docker / Podman
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;   # provides a `docker` command that runs podman
+    defaultNetwork.settings.dns_enabled = true;
   };
 
   # Tailscale service
