@@ -1,8 +1,14 @@
-{...}:
+{ pkgs, ...}:
 
 {
   programs.helix = {
     enable = true;
+
+    # Language servers, visible only to helix (not to the whole system)
+    extraPackages = with pkgs; [
+      nil                                  # Nix
+      python3Packages.python-lsp-server    # Python (pylsp)
+    ];
 
     settings = {
       # theme = "catppuccin_mocha";

@@ -28,6 +28,7 @@ in {
     ../../modules/home/editors/${editor}
     ../../modules/home/git
     ../../modules/home/gitui
+    ../../modules/home/mpv
     ../../modules/home/niri
     ../../modules/home/noctalia
     ../../modules/home/shells/${shell}
@@ -35,6 +36,7 @@ in {
     ../../modules/home/swaylock
     ../../modules/home/terminals/${terminal}
     ../../modules/home/yazi
+    ../../modules/home/zathura
     ../../modules/home/zellij
     ../../modules/home/zoxide
   ];

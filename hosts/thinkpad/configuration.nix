@@ -17,11 +17,12 @@ in {
       # Include the results of the hardware scan.
       ../../hardware/thinkpad/hardware-configuration.nix
 
-      ../../modules/home/stylix
+      ../../modules/system/stylix
 
       ../../modules/system/automount
       ../../modules/system/clamav
       ../../modules/system/fwupd
+      ../../modules/system/memory
       ../../modules/system/niri
       ../../modules/system/noctalia
       ../../modules/system/nvidia
@@ -60,7 +61,13 @@ in {
       auto-optimise-store = true;
       trusted-users = [ "root" "@wheel" ];
       experimental-features = ["nix-command" "flakes"];
+      warn-dirty = false;   # silences "Git tree is dirty"
     };
+
+    # Make `nix run nixpkgs#x` and `nix-shell -p` use the flake's locked nixpkgs (works offline)
+    registry.nixpkgs.flake = inputs.nixpkgs;
+    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+    channel.enable = false;
   };
 
   #------------------------------------------------------------
@@ -166,25 +173,12 @@ in {
 
   environment = {
 
-    sessionVariables = {
-    };
-
     systemPackages = with pkgs;
     [
-      home-manager
-      lazygit
-      lf
-      mpv
-      nil
+      imv
       nix-output-monitor
       nvd
       nvitop
-      (python3.withPackages (ps: with ps; [
-        python-lsp-server
-      ]))
-      sxiv
-      tailscale
-      zathura
     ];
   };
 
