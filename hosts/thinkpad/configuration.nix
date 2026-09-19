@@ -22,6 +22,7 @@ in {
       ../../modules/system/automount
       ../../modules/system/clamav
       ../../modules/system/fwupd
+      ../../modules/system/greeter
       ../../modules/system/memory
       ../../modules/system/niri
       ../../modules/system/noctalia
@@ -149,7 +150,6 @@ in {
   # Enable the X11 windowing system.
   services = {
     xserver.enable = true;
-    displayManager.gdm.enable = true;
   };
 
   # Configure keymap in X11

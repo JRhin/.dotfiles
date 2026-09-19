@@ -15,9 +15,6 @@ let
 in {
   home.stateVersion = stateVersion; 
 
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
-
   imports = [
     ../../modules/home/bottom
     ../../modules/home/browser/${browser}
