@@ -3,7 +3,6 @@
 {
   programs.firefox = {
     enable = true;
-    configPath = ".mozilla/firefox";
 
     profiles.jrhin = {
       extensions.packages = import ../extensions.nix { inherit inputs; };

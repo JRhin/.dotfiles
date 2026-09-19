@@ -4,7 +4,7 @@ let
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  stateVersion = "23.11"; # Please read the comment before changing.
+  stateVersion = "26.05"; # Please read the comment before changing.
   
   browser = "zen";
   br_profile = "jrhin";
