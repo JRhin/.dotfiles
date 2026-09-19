@@ -1,10 +1,11 @@
-{config, ...}:
+{config, pkgs, ...}:
 
 {
   # Enable OpenGL
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
+    extraPackages = with pkgs; [ intel-media-driver ];
   };
 
   # Load nvidia driver for Xorg and Wayland
