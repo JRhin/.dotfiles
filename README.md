@@ -64,7 +64,6 @@ Rollback: `sudo nixos-rebuild switch --rollback`, or hold **Space** at boot to p
 ## ⚠️ Notes
 
 - Run `git add -A` before every build, or new files will not be found.
-- Keep `stateVersion` at `23.11`; do not bump it without reading the release notes.
 - For themed programs use `programs.<name>.enable = true` so Stylix can style them.
 
 <p align="center">
