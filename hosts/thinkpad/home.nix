@@ -20,14 +20,17 @@ in {
   imports = [
     ../../modules/home/browser/${browser}
     ../../modules/home/fzf
+    ../../modules/home/editors/${editor}
     ../../modules/home/git
     ../../modules/home/gitui
-    # ../../modules/home/hyprland
-    ../../modules/home/editors/${editor}
+    ../../modules/home/niri
+    ../../modules/home/noctalia
     ../../modules/home/shells/${shell}
+    ../../modules/home/swaylock
     ../../modules/home/terminals/${terminal}
     ../../modules/home/zellij
     ../../modules/home/zoxide
+    
   ];
 
   home.username = username;

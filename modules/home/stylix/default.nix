@@ -8,10 +8,10 @@
   stylix.image = ./desert_wallpaper.jpg;
 
   stylix.fonts = {
-    # monospace = {
-    #   package = pkgs.nerd-fonts.fira-code;
-    #   name = "FiraCode Nerd Font Mono";
-    # };
+    monospace = {
+      package = pkgs.nerd-fonts.fira-code;
+      name = "FiraCode Nerd Font Mono";
+    };
     
     sansSerif = {
       package = pkgs.dejavu_fonts;

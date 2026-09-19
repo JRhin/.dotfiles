@@ -23,6 +23,10 @@ in {
       ../../modules/system/nvidia
       ../../modules/system/pipewire
       ../../modules/system/printing
+      ../../modules/system/niri
+      ../../modules/system/noctalia
+      ../../modules/system/swaylock
+
       inputs.home-manager.nixosModules.default
   ];
   
@@ -55,7 +59,7 @@ in {
       experimental-features = ["nix-command" "flakes"];
     };
     gc = {
-      automatic = true;
+      automatic = false;
       dates = "weekly";
       options = "--delete-older-than 7d";
     };
@@ -126,13 +130,6 @@ in {
     desktopManager.gnome.enable = true;
   };
 
-  # services.xserver.displayManager.gdm.wayland = true;
-  # programs.hyprland.enable = true;
-  #xdg.portal.enable = true;
-  #xdg.portal.extraPortals = with pkgs; [
-  #  xdg-desktop-portal-gtk
-  #];
-
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "it";
@@ -177,7 +174,6 @@ in {
       sxiv
       tailscale
       #swww
-      #waybar
       #wofi
       zathura
     ];

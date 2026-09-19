@@ -4,12 +4,7 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
-    hyprland.url = "github:hyprwm/Hyprland";
-
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
+    noctalia.url = "github:noctalia-dev/noctalia";
 
     home-manager = {
         url = "github:nix-community/home-manager";
