@@ -88,6 +88,8 @@ let
           layout = "regular";
           show_media = true;
           show_weather = true;
+          show_session_buttons = false;   # no logout / reboot / shutdown buttons
+          show_unlock_hint = false;       # no status card ("Type your password...", "Authenticating")
         };
       };
     };
