@@ -47,7 +47,9 @@ in {
     cbonsai
     discord
     dust
+    evtest
     obsidian
+    proton-pass-cli
     telegram-desktop
   ];
 
@@ -62,4 +64,7 @@ in {
 
   stylix.targets.firefox.profileNames = [ br_profile ];
   stylix.targets.zen-browser.profileNames = [ br_profile ];
+
+  home.sessionVariables.PROTON_PASS_LINUX_KEYRING = "dbus";
+  systemd.user.sessionVariables.PROTON_PASS_LINUX_KEYRING = "dbus";
 }

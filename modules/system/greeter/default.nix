@@ -50,4 +50,7 @@ in
       cursor.size = 24;
     };
   };
+
+    # Unlock gnome-keyring at login (greetd does not do it by itself, GDM did)
+  security.pam.services.greetd.enableGnomeKeyring = true;
 }

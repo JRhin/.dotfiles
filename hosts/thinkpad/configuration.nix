@@ -104,7 +104,7 @@ in {
     ${user} = {
       isNormalUser = true;
       description = user;
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = [ "networkmanager" "wheel" "input" ];
       shell = pkgs.${shell};
     };
   };
