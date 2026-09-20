@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, lib, ... }:
 
 {
   imports = [ inputs.noctalia.homeModules.default ];
@@ -10,12 +10,25 @@
     systemd.enable = true;
 
     settings = {
+      lockscreen_widgets = import ./lockscreen.nix { inherit lib; };
+
       # The official and community plugin sources are built in
       plugins.enabled = [
         "noctalia/bongocat"
         "dotnetrob/cat"
         "lucasoe/proton-pass"
       ];
+
+      # Where you are: feeds weather, night light and automatic theme mode
+      location.auto_locate = true;   # approximate position from your IP address
+
+      # Weather from Open-Meteo, uses the location above
+      weather = {
+        enabled = true;
+        refresh_minutes = 30;
+        unit = "metric";
+        effects = true;
+      };
 
       # Bar widgets provided by plugins: type = "<author>/<plugin>:<entry>"
       widget = {

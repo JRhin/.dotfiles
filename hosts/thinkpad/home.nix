@@ -30,7 +30,6 @@ in {
     ../../modules/home/noctalia
     ../../modules/home/shells/${shell}
     ../../modules/home/spicetify
-    ../../modules/home/swaylock
     ../../modules/home/terminals/${terminal}
     ../../modules/home/yazi
     ../../modules/home/zathura
