@@ -44,6 +44,7 @@ in {
 
   home.packages = with pkgs; [
     cbonsai
+    cliamp
     discord
     dust
     evtest
