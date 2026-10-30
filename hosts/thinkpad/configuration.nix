@@ -22,6 +22,7 @@ in {
       ../../modules/system/automount
       ../../modules/system/clamav
       ../../modules/system/fwupd
+      ../../modules/system/gaming
       ../../modules/system/greeter
       ../../modules/system/memory
       ../../modules/system/niri
@@ -54,6 +55,8 @@ in {
         configurationLimit = 5;
       };
     };
+
+    kernelPackages = pkgs.linuxPackages_zen;
   };
 
   # Optimization settings and garbage collection automation
